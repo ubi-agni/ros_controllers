@@ -449,7 +449,7 @@ def _jtc_joint_names(jtc_info):
     # NOTE: We assume that there is at least one hardware interface that
     # claims resources (there should be), and the resource list is fetched
     # from the first available interface
-    return jtc_info.claimed_resources[0].resources
+    return jtc_info.resources
 
 def _resolve_controller_ns(cm_ns, controller_name):
     """
