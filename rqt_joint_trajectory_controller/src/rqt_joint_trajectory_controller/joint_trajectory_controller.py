@@ -413,8 +413,11 @@ class JointTrajectoryController(Plugin):
         traj.joint_names = self._joint_names
         point = JointTrajectoryPoint()
         for name in traj.joint_names:
-            pos = self._joint_pos[name]['position']
-            cmd = pos
+            try:
+                pos = self._joint_pos[name]['position']
+                cmd = pos
+            except (KeyError):
+                print "key ", name, " missing"
             try:
                 cmd = self._joint_pos[name]['command']
             except (KeyError):
